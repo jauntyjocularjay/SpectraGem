@@ -1,6 +1,5 @@
 import {
     EasyAccessor,
-    Enum,
     Config,
     View,
     PHYSICS,
@@ -31,7 +30,7 @@ import {
 
     // Classables
     // // Containers
-    Img,
+    Img as PhaserImg,
     Div,
     DivBtn,
     FlexBox,
@@ -83,7 +82,23 @@ import {
     PercentageOutOfRangeError
 } from './vjsc.vanilla.mjs'
 
-let scene = this
+class Scene {
+
+    preload(){
+    
+    }
+    
+    create(){
+
+    }
+
+    update(){
+
+    }
+
+}
+
+let scene = new Scene()
 
 let config = new Config(new View(800, 600), PHYSICS, scene)
     config.preload = preload
@@ -92,15 +107,5 @@ let config = new Config(new View(800, 600), PHYSICS, scene)
 let game = new Phaser.Game(config)
 
 
-function preload ()
-{
 
-}
 
-function create ()
-{
-}
-
-function update ()
-{
-}
