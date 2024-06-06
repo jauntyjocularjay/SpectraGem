@@ -1,0 +1,9 @@
+[submodule "phaserhelpers"]
+	path = phaserhelpers
+	url = https://github.com/jauntyjocularjay/PhaserHelpers.git
+[submodule "sh"]
+	path = sh
+	url = https://github.com/jauntyjocularjay/kwikgit.git
+[submodule "npmcommands"]
+	path = npmcommands
+	url = https://github.com/jauntyjocularjay/NPMCommands.git
