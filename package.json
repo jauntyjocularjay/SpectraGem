@@ -1,0 +1,19 @@
+{
+  "name": "spectragem",
+  "version": "0.0.1",
+  "description": "``` git submodule update --init --recursive ```",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jauntyjocularjay/SpectraGem.git"
+  },
+  "author": "jauntyjocularjay",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/jauntyjocularjay/SpectraGem/issues"
+  },
+  "homepage": "https://github.com/jauntyjocularjay/SpectraGem#readme"
+}
