@@ -2,7 +2,6 @@ import {
     EasyAccessor,
     Config,
     View,
-    PHYSICS,
     Player,
     Position,
     Score,
@@ -13,6 +12,9 @@ import {
     Img,
     SpriteSheet,
 } from './phaserhelpers/index.mjs'
+import {
+    PHYSICS
+} from './phaserhelpers/Top-Down/index.mjs'
 import {
     // Constants
     display,
@@ -80,7 +82,7 @@ import {
     JSONCSS,
     UnsupportedJSONCSSError,
     PercentageOutOfRangeError
-} from './vjsc.vanilla.mjs'
+} from './vjsc/vanilla.mjs'
 
 class Scene {
 
@@ -98,14 +100,21 @@ class Scene {
 
 }
 
-let scene = new Scene()
+let gameplay = new Scene()
 
-let config = new Config(new View(800, 600), PHYSICS, scene)
-    config.preload = preload
-    config.create = create
-    config.update = update
+let config = new Config(new View(800, 600), PHYSICS, gameplay)
 let game = new Phaser.Game(config)
 
+gameplay.preload = () => {
+    
+}
 
+gameplay.create = () => {
+    
+}
+
+gameplay.update = () => {
+    
+}
 
 
