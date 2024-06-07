@@ -7,3 +7,6 @@
 [submodule "vjsc"]
 	path = vjsc
 	url = https://github.com/jauntyjocularjay/vanillajscomponents.git
+[submodule "test"]
+	path = test
+	url = https://github.com/jauntyjocularjay/SpectraGemTests.git
