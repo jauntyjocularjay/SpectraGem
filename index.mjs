@@ -14,7 +14,7 @@ import {
 } from './phaserhelpers/index.mjs'
 import {
     PHYSICS
-} from './phaserhelpers/Top-Down/index.mjs'
+} from './phaserhelpers/Platformer/index.mjs'
 import {
     // Constants
     display,
@@ -84,37 +84,55 @@ import {
     PercentageOutOfRangeError
 } from './vjsc/vanilla.mjs'
 
-class Scene {
 
-    preload(){
-    
-    }
-    
-    create(){
 
-    }
+const playfield = new Frame(384, 576)
+playfield.column = [
+    0,
+    64,
+    128,
+    192,
+    256,
+    320
+]
+playfield.row = [
+    0,
+    64,
+    128,
+    192,
+    256,
+    320,
+    384,
+    448,
+    512
+]
 
-    update(){
+const gameplay = {}
+gameplay.stackGems = () => {
 
-    }
-
+    playfield.column.forEach(col => {
+        playfield.row.forEach(row => {
+            gems.create(col, row,)
+        })
+    })
 }
-
-let gameplay = new Scene()
-
-let config = new Config(new View(800, 600), PHYSICS, gameplay)
-let game = new Phaser.Game(config)
 
 gameplay.preload = () => {
-    
+    for(const [key, value] of Object.entries(PATH.GEM)){
+        this.image.add(key, value)
+    }
 }
 
+
 gameplay.create = () => {
-    
+    this.stackGems()
 }
 
 gameplay.update = () => {
     
 }
 
+
+let config = new Config(new View(800, 600), PHYSICS, gameplay)
+let game = new Phaser.Game(config)
 
