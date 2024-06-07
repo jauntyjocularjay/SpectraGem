@@ -46,20 +46,22 @@ describe('Gem.mjs', () => {
     const whiteGem = new WhiteGem()
     const grayGem = new GrayGem()
 
-    expectObjectsAreEqual('RedGem.RED', RedGem.RED, 'redGem.color:', redGem.color)
-    expectObjectsAreEqual('OrangeGem.ORANGE', OrangeGem.ORANGE, 'orangeGem.color:', orangeGem.color)
-    expectObjectsAreEqual('YellowGem.YELLOW', YellowGem.YELLOW, 'yellowGem.color:', yellowGem.color)
-    expectObjectsAreEqual('GreenGem.GREEN', GreenGem.GREEN, 'greenGem.color:', greenGem.color)
-    expectObjectsAreEqual('BlueGem.BLUE', BlueGem.BLUE, 'blueGem.color:', blueGem.color)
-    expectObjectsAreEqual('VioletGem.VIOLET', VioletGem.VIOLET, 'violetGem.color:', violetGem.color)
-    expectObjectsAreEqual('WhiteGem.WHITE', WhiteGem.WHITE, 'whiteGem.color:', whiteGem.color)
-    expectObjectsAreEqual('GrayGem.GRAY', GrayGem.GRAY, 'grayGem.color:', grayGem.color)
+    describe('Static Fields', () => {
+        expectObjectsAreEqual('RedGem.RED', RedGem.RED, 'redGem.color:', redGem.color)
+        expectObjectsAreEqual('OrangeGem.ORANGE', OrangeGem.ORANGE, 'orangeGem.color:', orangeGem.color)
+        expectObjectsAreEqual('YellowGem.YELLOW', YellowGem.YELLOW, 'yellowGem.color:', yellowGem.color)
+        expectObjectsAreEqual('GreenGem.GREEN', GreenGem.GREEN, 'greenGem.color:', greenGem.color)
+        expectObjectsAreEqual('BlueGem.BLUE', BlueGem.BLUE, 'blueGem.color:', blueGem.color)
+        expectObjectsAreEqual('VioletGem.VIOLET', VioletGem.VIOLET, 'violetGem.color:', violetGem.color)
+        expectObjectsAreEqual('WhiteGem.WHITE', WhiteGem.WHITE, 'whiteGem.color:', whiteGem.color)
+        expectObjectsAreEqual('GrayGem.GRAY', GrayGem.GRAY, 'grayGem.color:', grayGem.color)
+        expectArraytoIncludeArrayContents('Gem.RED.composes', Gem.RED.composes, '[Gem.ORANGE, Gem.VIOLET]', [Gem.ORANGE, Gem.VIOLET])
+        expectArraytoIncludeArrayContents('Gem.RED.composes', Gem.RED.composes, '[Gem.BLUE, Gem.VIOLET]', [Gem.BLUE, Gem.VIOLET], false)
+    })
 
-
-    expectArraytoIncludeArrayContents('Gem.RED.composes', Gem.RED.composes, '[Gem.ORANGE, Gem.VIOLET]', [Gem.ORANGE, Gem.VIOLET])
-    expectArraytoIncludeArrayContents('Gem.RED.composes', Gem.RED.composes, '[Gem.BLUE, Gem.VIOLET]', [Gem.BLUE, Gem.VIOLET], false)
-
-
+    describe('', () => {
+        
+    })
 })
 
 
