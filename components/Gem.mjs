@@ -15,12 +15,12 @@ class Gem {
     static RED = {
         type: 'primary',
         path: PATH.GEM.red,
-        composes: [Gem.ORANGE, Gem.VIOLET]
+        composes: null
     }
     static ORANGE = {
         type: 'secondary',
         path: PATH.GEM.orange,
-        composes: [Gem.RED, Gem.YELLOW]
+        composes: null
     }
     static YELLOW = {
         type: 'primary',
@@ -77,6 +77,14 @@ class Gem {
         }
     }
 }
+
+Gem.RED.composes = [Gem.ORANGE, Gem.VIOLET]
+Gem.ORANGE.composes = [Gem.RED, Gem.YELLOW]
+Gem.YELLOW.composes = [Gem.ORANGE, Gem.GREEN]
+Gem.GREEN.composes = [Gem.YELLOW, Gem.BLUE]
+Gem.BLUE.composes = [Gem.GREEN, Gem.VIOLET]
+Gem.VIOLET.composes = [Gem.RED, Gem.BLUE]
+Gem.WHITE.composes = [Gem.RED, Gem.ORANGE, Gem.YELLOW, Gem.GREEN, Gem.BLUE, Gem.VIOLET]
 
 class PrimaryGem extends Gem {
     constructor(){
@@ -176,6 +184,7 @@ class GrayGem extends Gem {
 }
 
 export {
+    Gem,
     RedGem,
     OrangeGem,
     YellowGem,
@@ -183,5 +192,9 @@ export {
     BlueGem,
     VioletGem,
     WhiteGem,
-    GrayGem
+    GrayGem,
+    
+    // for testing only
+    PrimaryGem,
+    SecondaryGem,
 }
