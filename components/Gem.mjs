@@ -97,7 +97,10 @@ Gem.WHITE.composes = [Gem.RED, Gem.ORANGE, Gem.YELLOW, Gem.GREEN, Gem.BLUE, Gem.
 class PrimaryGem extends Gem {
     constructor(){
         super()
-        this.color = Gem.RED
+        this.color = {
+            alias: 'primary',
+            type: 'primary'
+        }
     }
 
     combinesInto(gem){
@@ -154,7 +157,10 @@ class BlueGem extends PrimaryGem {
 class SecondaryGem extends Gem {
     constructor(){
         super()
-        this.color = Gem.ORANGE
+        this.color = {
+            alias: 'secondary',
+            type: 'secondary'  
+        }
     }
 
     splitsFrom(gem){
