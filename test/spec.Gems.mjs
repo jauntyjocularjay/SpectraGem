@@ -59,8 +59,9 @@ describe('Gem.mjs', () => {
         expectArraytoIncludeArrayContents('Gem.RED.composes', Gem.RED.composes, '[Gem.BLUE, Gem.VIOLET]', [Gem.BLUE, Gem.VIOLET], false)
     })
 
-    describe('', () => {
-        
+    describe('Matchability tests', () => {
+        /*** @todo - write these tests */
+        expectToBeTrue(redGem.matches(Gem.RED))
     })
 })
 
