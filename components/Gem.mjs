@@ -13,41 +13,49 @@ const PATH = {
 
 class Gem {
     static RED = {
+        alias: 'red',
         type: 'primary',
         path: PATH.GEM.red,
         composes: null
     }
     static ORANGE = {
+        alias: 'orange',
         type: 'secondary',
         path: PATH.GEM.orange,
         composes: null
     }
     static YELLOW = {
+        alias: 'yellow',
         type: 'primary',
         path: PATH.GEM.yellow,
-        composes: [Gem.ORANGE, Gem.GREEN]
+        composes: null
     }
     static GREEN = {
+        alias: 'green',
         type: 'secondary',
         path: PATH.GEM.green,
-        composes: [Gem.YELLOW, Gem.BLUE]
+        composes: null
     }
     static BLUE = {
+        alias: 'blue',
         type: 'primary',
         path: PATH.GEM.blue,
-        composes: [Gem.VIOLET, Gem.GREEN]
+        composes: null
     }
     static VIOLET = {
+        alias: 'violet',
         type: 'secondary',
         path: PATH.GEM.violet,
-        composes: [Gem.RED, Gem.BLUE]
+        composes: null
     }
     static WHITE = {
+        alias: 'white',
         type: 'wild',
         path: PATH.GEM.white,
-        composes: [Gem.RED, Gem.ORANGE, Gem.YELLOW, Gem.GREEN, Gem.BLUE, Gem.VIOLET]
+        composes: null
     }
     static GRAY = {
+        alias: 'gray',
         type: 'dud',
         path: PATH.GEM.gray,
         composes: []
@@ -161,7 +169,7 @@ class OrangeGem extends SecondaryGem {
     }
 }
 
-class GreenGem extends SecondaryGem { // violet <- red, blue
+class GreenGem extends SecondaryGem {
     constructor(){
         super()
         this.color = Gem.GREEN
@@ -176,11 +184,17 @@ class VioletGem extends SecondaryGem { // violet <- red, blue
 }
 
 class WhiteGem extends Gem {
-
+    constructor(){
+        super()
+        this.color = Gem.WHITE
+    }
 }
 
 class GrayGem extends Gem {
-
+    constructor(){
+        super()
+        this.color = Gem.GRAY
+    }
 }
 
 export {
