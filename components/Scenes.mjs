@@ -33,7 +33,7 @@ let background
 let platform
 let gems = []
 
-const MAIN = new Scene()
+const MAIN = {}
 
 MAIN.preload = function() {
     for(const [key, value] of Object.entries(PATH.gem)){
