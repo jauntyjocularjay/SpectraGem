@@ -7,6 +7,3 @@
 [submodule "vjsc"]
 	path = vjsc
 	url = https://github.com/jauntyjocularjay/vanillajscomponents.git
-[submodule "chaitests"]
-	path = chaitests
-	url = https://github.com/jauntyjocularjay/chaitests.git
