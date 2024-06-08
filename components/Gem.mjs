@@ -1,61 +1,56 @@
-const GEMPath = {
-    blue: 'assets/png/blue.png',
-    gray: 'assets/png/gray.png',
-    green: 'assets/png/green.png',
-    violet: 'assets/png/magenta.png',
-    orange: 'assets/png/orange.png',
-    red: 'assets/png/red.png',
-    white: 'assets/png/white.png',
-    yellow: 'assets/png/yellow.png'
-}
+import {
+    PATH
+} from './index.mjs'
+
+
 
 class Gem {
     static RED = {
         alias: 'red',
         type: 'primary',
-        path: GEMPath.red,
+        path: PATH.gem.red,
         composes: null
     }
     static ORANGE = {
         alias: 'orange',
         type: 'secondary',
-        path: GEMPath.orange,
+        path: PATH.gem.orange,
         composes: null
     }
     static YELLOW = {
         alias: 'yellow',
         type: 'primary',
-        path: GEMPath.yellow,
+        path: PATH.gem.yellow,
         composes: null
     }
     static GREEN = {
         alias: 'green',
         type: 'secondary',
-        path: GEMPath.green,
+        path: PATH.gem.green,
         composes: null
     }
     static BLUE = {
         alias: 'blue',
         type: 'primary',
-        path: GEMPath.blue,
+        path: PATH.gem.blue,
         composes: null
     }
     static VIOLET = {
         alias: 'violet',
         type: 'secondary',
-        path: GEMPath.violet,
+        path: PATH.gem.violet,
         composes: null
     }
     static WHITE = {
         alias: 'white',
         type: 'wild',
-        path: GEMPath.white,
+        path: PATH.gem.white,
         composes: null
     }
     static GRAY = {
         alias: 'gray',
         type: 'dud',
-        path: GEMPath.gray,
+        path: PATH.gem.gray,
         composes: []
     }
 
@@ -224,7 +219,6 @@ class GrayGem extends Gem {
 }
 
 export {
-    GEMPath,
     Gem,
     RedGem,
     OrangeGem,
