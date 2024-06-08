@@ -1,63 +1,61 @@
-const PATH = {
-    GEM : {
-        blue: 'assets/png/blue.png',
-        gray: 'assets/png/gray.png',
-        green: 'assets/png/green.png',
-        violet: 'assets/png/magenta.png',
-        orange: 'assets/png/orange.png',
-        red: 'assets/png/red.png',
-        white: 'assets/png/white.png',
-        yellow: 'assets/png/yellow.png'
-    }
+const GEMPath = {
+    blue: 'assets/png/blue.png',
+    gray: 'assets/png/gray.png',
+    green: 'assets/png/green.png',
+    violet: 'assets/png/magenta.png',
+    orange: 'assets/png/orange.png',
+    red: 'assets/png/red.png',
+    white: 'assets/png/white.png',
+    yellow: 'assets/png/yellow.png'
 }
 
 class Gem {
     static RED = {
         alias: 'red',
         type: 'primary',
-        path: PATH.GEM.red,
+        path: GEMPath.red,
         composes: null
     }
     static ORANGE = {
         alias: 'orange',
         type: 'secondary',
-        path: PATH.GEM.orange,
+        path: GEMPath.orange,
         composes: null
     }
     static YELLOW = {
         alias: 'yellow',
         type: 'primary',
-        path: PATH.GEM.yellow,
+        path: GEMPath.yellow,
         composes: null
     }
     static GREEN = {
         alias: 'green',
         type: 'secondary',
-        path: PATH.GEM.green,
+        path: GEMPath.green,
         composes: null
     }
     static BLUE = {
         alias: 'blue',
         type: 'primary',
-        path: PATH.GEM.blue,
+        path: GEMPath.blue,
         composes: null
     }
     static VIOLET = {
         alias: 'violet',
         type: 'secondary',
-        path: PATH.GEM.violet,
+        path: GEMPath.violet,
         composes: null
     }
     static WHITE = {
         alias: 'white',
         type: 'wild',
-        path: PATH.GEM.white,
+        path: GEMPath.white,
         composes: null
     }
     static GRAY = {
         alias: 'gray',
         type: 'dud',
-        path: PATH.GEM.gray,
+        path: GEMPath.gray,
         composes: []
     }
 
@@ -204,6 +202,7 @@ class GrayGem extends Gem {
 }
 
 export {
+    GEMPath,
     Gem,
     RedGem,
     OrangeGem,
