@@ -59,6 +59,28 @@ class Gem {
         composes: []
     }
 
+    static random(){
+        const random = Math.floor(Math.random() * 60)
+        if(random <= 8){
+            return new RedGem()
+        } else if(random <= 16){
+            return new OrangeGem()
+        } else if(random <= 24){
+            return new YellowGem()
+        } else if(random <= 32){
+            return new GreenGem()
+        } else if(random <= 40){
+            return new BlueGem()
+        } else if(random <= 48){
+            return new VioletGem()
+        } else if(random <= 56){
+            return new GrayGem()
+        } else if(random <= 60){
+            return new WhiteGem()
+        }
+        
+    }
+
     constructor(){}
 
     matchesType(gem){
