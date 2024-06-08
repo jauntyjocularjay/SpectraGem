@@ -4,7 +4,6 @@ import {
     View,
     Player,
     Position,
-    // Scene,
     Score,
     Spread,
     Typeface,
@@ -29,11 +28,13 @@ import {
     VIEW,
 } from './index.mjs'
 
-let background
+let grid
 let platform
-let gems = []
+let gems
 
+const menu = {}
 const MAIN = {}
+const gameover = {}
 
 MAIN.preload = function() {
     for(const [key, value] of Object.entries(PATH.gem)){
@@ -47,28 +48,27 @@ MAIN.preload = function() {
 }
 
 MAIN.create = function() {
-    let temp = {}
     /** @object background is the background grid */
-    background = this.add.sprite(VIEW.width / 2, VIEW.height / 2, '6x8')
+    grid = this.add.sprite(3*(VIEW.width/10), 4.5*(VIEW.height / 9), '6x8')
 
     /** @object platforms hold the gems up */
     platform = this.physics.add.staticGroup()
-    platform.create(VIEW.width / 2, VIEW.height-30, 'platformx384')
+    platform.create(3*(VIEW.width/10), (35/4)*(VIEW.height / 9), 'platformx384')
 
     for(let j = 0; j < 8; j++){
-        for(let i = 4; i < 10; i++){
+        for(let i = 0; i < 6; i++){
             gems = this.physics.add.group({
                 key: Gem.random().color.alias,
-                setXY: { x: i * VIEW.width/13, y: 64 * j},
-                // customBoundsRectangle: {x:64, y:0, width: 64, height: 64}
+                setXY: { x: (i * VIEW.width/10)+31, y: 64 * j},
             })
             gems.children.iterate(function(child){
-                child.setBounceY(Phaser.Math.FloatBetween(0.3, 0.9))
+                child.setBounceY(Phaser.Math.FloatBetween(0.1,0.2))
             })
             this.physics.add.collider(gems, platform)
         }
     }
-    
+
+    console.log(gems)
 }
 
 MAIN.update = function() {
