@@ -4,7 +4,7 @@ import {
     View,
     Player,
     Position,
-    Scene,
+    // Scene,
     Score,
     Spread,
     Typeface,
@@ -44,8 +44,8 @@ let background
 let game
 
 const playfield = new Frame(832, 640)
-const title = new Scene()
-const gameover = new Scene()
+// const title = new Scene()
+// const gameover = new Scene()
 let config = new Config(VIEW, PHYSICS)
 config.scene = MAIN
 // config.scene.preload = mainPreload
