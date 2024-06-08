@@ -1,9 +1,3 @@
+# SpectraGems
 
-
-```
-git submodule update --init --recursive
-```
-
-```
-bash npmcommands/start.sh
-```
+This is a game utilizing color theory.
