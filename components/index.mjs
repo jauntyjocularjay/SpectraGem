@@ -24,7 +24,7 @@ const PATH = {
         x512: 'assets/png/platformx512.png'
     }
 }
-const VIEW = new View(832,600)
+const VIEW = new View((10 * 64), (9 * 64))
 
 export {
     PATH,
