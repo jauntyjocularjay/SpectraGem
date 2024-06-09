@@ -2,6 +2,7 @@ import {
     EasyAccessor,
     Config,
     View,
+    PHYSICS,
     Player,
     Position,
     Score,
@@ -12,9 +13,6 @@ import {
     Img,
     SpriteSheet,
 } from './phaserhelpers/index.mjs'
-import {
-    PHYSICS
-} from './phaserhelpers/Platformer/index.mjs'
 import {
     Gem,
     RedGem,
@@ -34,12 +32,9 @@ import { MAIN } from './components/Scenes.mjs'
 
 
 
-let platform
-let gems = []
-let background
 let game
 
-let config = new Config(VIEW, PHYSICS)
+let config = new Config(VIEW, PHYSICS.arcade)
 config.scene = MAIN
 
 game = new Phaser.Game(config)
