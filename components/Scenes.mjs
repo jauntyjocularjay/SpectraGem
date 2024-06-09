@@ -38,7 +38,7 @@ const gameover = {}
 
 MAIN.preload = function() {
     for(const [key, value] of Object.entries(PATH.gem)){
-        this.load.spritesheet(key, value, new SquareFrame(64))
+        this.load.spritesheet(key, value, new SquareFrame(60)) // reduced 64 to 60
     }
     for(const [key, value] of Object.entries(PATH.board)){
         this.load.spritesheet(key, value, new Frame(384, 512))
@@ -48,6 +48,8 @@ MAIN.preload = function() {
 }
 
 MAIN.create = function() {
+
+    
     /** @object background is the background grid */
     grid = this.add.sprite(3*(VIEW.width/10), 4.5*(VIEW.height / 9), '6x8')
 
@@ -57,9 +59,17 @@ MAIN.create = function() {
 
     for(let j = 0; j < 8; j++){
         for(let i = 0; i < 6; i++){
+
             gems = this.physics.add.group({
                 key: Gem.random().color.alias,
-                setXY: { x: (i * VIEW.width/10)+31, y: 64 * j},
+                setXY: { 
+                    x: (i * VIEW.width/10)+30, 
+                    y: 64 * j
+                },
+                scale: {
+                    x: 15/16,
+                    y: 15/16
+                }
             })
             gems.children.iterate(function(child){
                 child.setBounceY(Phaser.Math.FloatBetween(0.1,0.2))
@@ -68,6 +78,7 @@ MAIN.create = function() {
         }
     }
 
+    this.physics.add.collider(gems, gems)
     console.log(gems)
 }
 
