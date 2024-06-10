@@ -28,16 +28,18 @@ import {
     PATH,
     VIEW,
 } from './components/index.mjs'
-import { MAIN } from './components/Scenes.mjs'
+import {
+    MENU, 
+    MAIN,
+    GAMEOVER
+} from './components/Scenes.mjs'
 
 
-
-let game
-
+PHYSICS.arcade.arcade.gravity.y = 256
 let config = new Config(VIEW, PHYSICS.arcade)
 config.scene = MAIN
 
-game = new Phaser.Game(config)
+const game = new Phaser.Game(config)
 
 export {
     PATH
