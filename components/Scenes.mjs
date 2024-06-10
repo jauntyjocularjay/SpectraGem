@@ -1,9 +1,4 @@
 import {
-    Scene,
-    Collider
-} from 'phaser'
-
-import {
     EasyAccessor,
     Config,
     View,
