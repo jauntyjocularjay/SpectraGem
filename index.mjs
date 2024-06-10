@@ -28,14 +28,15 @@ import {
     PATH,
     VIEW,
 } from './components/index.mjs'
-import { MAIN } from './components/Scenes.mjs'
+import { SCENES } from './components/Scenes.mjs'
 
 
 
 let game
+let i = 0
 
 let config = new Config(VIEW, PHYSICS.arcade)
-config.scene = MAIN
+config.scene = SCENES[i]
 
 game = new Phaser.Game(config)
 

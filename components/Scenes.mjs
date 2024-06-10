@@ -31,10 +31,34 @@ import {
 let grid
 let platform
 let gemSprites
+const br = '\n'
 
 const MENU = {}
 const MAIN = {}
 const GAMEOVER = {}
+
+MENU.text = {
+    title: 'Spectragem',
+    instructions: [
+        'Spectragem is a match-3 puzzle game you have seen before. The difference is' + 
+        'that you have many more options than other match-3 games.',
+
+        'Red, Blue, and Yellow are primary colors and gems of these colors are ' +
+        'combined to create secondary color gem: orange, green, violet. ' +
+        'Secondary color gems are matched in a sequence of primary color gems leave their ' +
+        'remaining component behind.'
+    ]
+}
+
+MENU.preload = function() {
+
+}
+
+MENU.create = function() {}
+
+MENU.update = function() {}
+
+
 
 MAIN.preload = function() {
     for(const [key, value] of Object.entries(PATH.gem)){
@@ -89,9 +113,8 @@ MAIN.match = function(gem1, gem2) {
     }
 }
 
+const SCENES = [MENU, MAIN, GAMEOVER]
 
 export {
-    MENU,
-    MAIN,
-    GAMEOVER
+    SCENES
 }
