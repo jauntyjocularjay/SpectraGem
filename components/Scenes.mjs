@@ -1,4 +1,9 @@
 import {
+    Scene,
+    Collider
+} from 'phaser'
+
+import {
     EasyAccessor,
     Config,
     View,
@@ -28,9 +33,9 @@ import {
     VIEW,
 } from './index.mjs'
 
-let grid
+// let grid
 let platform
-let gemSprites
+// let gemSprites
 
 const MENU = {}
 const MAIN = {}
@@ -72,10 +77,11 @@ for(const [key, value] of Object.entries(PATH.card.med)){
 for(const [key, value] of Object.entries(PATH.card.sml)){
     cards[key] = new SpriteSheet(key, value, new Frame(640, 384))
 }
-const boards = []
-boards['3x3'] = new SpriteSheet('3x3', PATH.board['3x3'], new Frame(193, 193))
-boards['platformx384'] = new SpriteSheet('platformx384', PATH.platform.x384, new Frame(384, 32))
-boards['platformx512'] = new SpriteSheet('platformx512', PATH.platform.x512, new Frame(512, 32))
+const boards = {
+    '3x3': new SpriteSheet('3x3', PATH.board['3x3'], new Frame(193, 193)),
+    platformx384: new SpriteSheet('platformx384', PATH.platform.x384, new Frame(384, 32)),
+    platformx512: new SpriteSheet('platformx512', PATH.platform.x512, new Frame(512, 32))
+}
 const icons = {}
 for(const [key, value] of Object.entries(PATH.icon.social)){
     icons[key] = new SpriteSheet(key, value, iconFrame)
@@ -150,7 +156,7 @@ MAIN.preload = function() {
 
 MAIN.create = function() {
     /** @object bg is the background image */
-    this.load.image('aurora', PATH.background.aurora).setScale(0.5).refreshBody()
+    this.load.image('aurora', PATH.background.aurora)
 
     /** @object grid is the gem grid */
     this.add.sprite(3*(VIEW.width/12), 4.5*(VIEW.height / 9), '6x8')
@@ -161,26 +167,40 @@ MAIN.create = function() {
 
     /** @object Gems group */
     let gems = []
-    let temp = {}
     const gemBuffer = 2
     const gemXOffset = 30
     const gemYOffset = 0
 
     for(let i = 0; i < 6; i++){ // i indicates the row
         for(let j = 0; j < 8; j++){ // j inducates the column
-            temp = this.physics.add.group({
+            gems.push(this.physics.add.group({
                 key: Gem.random().color.alias,
                 setXY: { 
                     x: (i * VIEW.width/12) + gemXOffset, // spaces between the gems horizontally
                     y: ((64 + gemBuffer) * j) - gemYOffset // space between gems vertically on creation
                 }
-            })
-
-            gems.push(temp)
-            this.physics.add.collider(temp, gems)
-            this.physics.add.collider(temp, platform)
+            }))
         }
     }
+
+    const overlapper = Collider(
+        this.world, 
+        true, 
+        gems, 
+        gems, 
+        () => {
+            this.world.collideObjects(
+                this.object1,
+                this.object2,
+                this.collideCallback,
+                this.processCallback,
+                this.callbackContext,
+                false
+            ) 
+
+        })
+    this.physics.add.collider(gems, gems)
+    this.physics.add.collider(gems, platform)
 }
 
 MAIN.update = function() {

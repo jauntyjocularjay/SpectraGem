@@ -33,9 +33,10 @@ import {
 } from './components/Scenes.mjs'
 
 
-PHYSICS.arcade.arcade.gravity.y = 16
+PHYSICS.arcade.arcade.gravity.y = 256
+PHYSICS.arcade.arcade.debug = true
 let config = new Config(VIEW, PHYSICS.arcade)
-config.scene = SCENES[0]
+config.scene = SCENES[1]
 
 const game = new Phaser.Game(config)
 
