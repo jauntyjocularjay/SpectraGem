@@ -38,7 +38,7 @@ import {
 
 PHYSICS.arcade.arcade.gravity.y = 256
 let config = new Config(VIEW, PHYSICS.arcade)
-config.scene = SCENES[0]
+config.scene = SCENES[1]
 
 const game = new Phaser.Game(config)
 
