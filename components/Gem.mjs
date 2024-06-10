@@ -79,7 +79,7 @@ class Gem {
     constructor(){}
 
     matchesType(gem){
-        if(this.type === gem.type){ return true }
+        if(this.color.type === gem.color.type){ return true }
     }
 
     matchesComposes(gem){
@@ -92,8 +92,9 @@ class Gem {
         return true
     }
 
-    matches(color){
-        if((this.matchesType(color) && this.matchesComposes(color)) || this.type === 'wild' || color.type === 'wild'){
+    matches(gem){
+        const color = gem.color
+        if((this.matchesType(gem) && this.matchesComposes(color)) || this.color.type === 'wild' || gem.color.type === 'wild'){
             return true
         } else {
             return false
@@ -197,7 +198,7 @@ class GreenGem extends SecondaryGem {
     }
 }
 
-class VioletGem extends SecondaryGem { // violet <- red, blue
+class VioletGem extends SecondaryGem {
     constructor(){
         super()
         this.color = Gem.VIOLET
