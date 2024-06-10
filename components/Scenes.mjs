@@ -78,9 +78,9 @@ MENU.preload = function() {
     for(const [key, value] of Object.entries(PATH.icon.sound)){
         this.load.image(key, value, new Frame(32, 32))
     }
-    for(const [key, value] of Object.entries(PATH.icon)){
-        this.load.image(key, value, new Frame(32, 32))
-    }
+    // for(const [key, value] of Object.entries(PATH.icon)){
+    //     this.load.image(key, value, new Frame(32, 32))
+    // }
     for(const [key, value] of Object.entries(PATH.card.lrg)){
         this.load.image(key, value, new Frame(384, 768))
     }
