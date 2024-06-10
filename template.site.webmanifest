@@ -1,6 +1,7 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "SpectraGem",
+    "short_name": "SpectraGem",
+    "start_url": ".",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
