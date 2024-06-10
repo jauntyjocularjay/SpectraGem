@@ -31,11 +31,11 @@ import {
 let grid
 let platform
 let gemSprites
-const br = '\n'
 
 const MENU = {}
 const MAIN = {}
 const GAMEOVER = {}
+const iconFrame = new SquareFrame(32)
 
 MENU.text = {
     title: 'Spectragem',
@@ -52,50 +52,60 @@ MENU.text = {
 
 MENU.preload = function() {
     for(const [key, value] of Object.entries(PATH.btn)){
-        this.load.image(key, value, new Frame(120, 40))
+        this.load.spritesheet(key, value, new Frame(120, 40))
     }
     for(const [key, value] of Object.entries(PATH.panel)){
-        this.load.image(key, value, new Frame(128, 64))
+        this.load.spritesheet(key, value, new Frame(128, 64))
     }
     for(const [key, value] of Object.entries(PATH.icon.social)){
-        this.load.image(key, value, new Frame(32, 32))
+        this.load.spritesheet(key, value, iconFrame)
     }
     for(const [key, value] of Object.entries(PATH.icon.direction)){
-        this.load.image(key, value, new Frame(32, 32))
+        this.load.spritesheet(key, value, iconFrame)
     }
     for(const [key, value] of Object.entries(PATH.icon.action)){
-        this.load.image(key, value, new Frame(32, 32))
+        this.load.spritesheet(key, value, iconFrame)
     }
     for(const [key, value] of Object.entries(PATH.icon.msg)){
-        this.load.image(key, value, new Frame(32, 32))
+        this.load.spritesheet(key, value, iconFrame)
     }
     for(const [key, value] of Object.entries(PATH.icon['in-game'])){
-        this.load.image(key, value, new Frame(32, 32))
+        this.load.spritesheet(key, value, iconFrame)
     }
     for(const [key, value] of Object.entries(PATH.icon.action)){
-        this.load.image(key, value, new Frame(32, 32))
+        this.load.spritesheet(key, value, iconFrame)
     }
     for(const [key, value] of Object.entries(PATH.icon.sound)){
-        this.load.image(key, value, new Frame(32, 32))
+        this.load.spritesheet(key, value, iconFrame)
     }
-    // for(const [key, value] of Object.entries(PATH.icon)){
-    //     this.load.image(key, value, new Frame(32, 32))
-    // }
+    for(const [key, value] of Object.entries(PATH.icon.other)){
+        this.load.spritesheet(key, value, iconFrame)
+    }
     for(const [key, value] of Object.entries(PATH.card.lrg)){
-        this.load.image(key, value, new Frame(384, 768))
+        this.load.spritesheet(key, value, new Frame(384, 768))
     }
     for(const [key, value] of Object.entries(PATH.card.med)){
-        this.load.image(key, value, new Frame(416, 384))
+        this.load.spritesheet(key, value, new Frame(416, 384))
     }
     for(const [key, value] of Object.entries(PATH.card.sml)){
-        this.load.image(key, value, new Frame(640, 384))
+        this.load.spritesheet(key, value, new Frame(640, 384))
     }
-
+    this.load.spritesheet('3x3', PATH.board['3x3'], new Frame(193, 193))
+    this.load.spritesheet('platformx384', PATH.platform.x384, new Frame(384, 32))
+    this.load.spritesheet('platformx512', PATH.platform.x512, new Frame(512, 32))
 }
 
-MENU.create = function() {}
+MENU.create = function() {
+        /** @object grid is the gem grid */
+    const grid = this.add.sprite(2*(VIEW.width/12), 7*(VIEW.height/9), '3x3')
+        /** @object platforms hold the gems up */
+    const platform = this.physics.add.staticGroup()
+    platform.create(2*(VIEW.width/12), (35/4)*(VIEW.height / 9), 'platformx384').setScale(0.5, 1.0).refreshBody()
+}
 
-MENU.update = function() {}
+MENU.update = function() {
+
+}
 
 
 
@@ -113,12 +123,12 @@ MAIN.preload = function() {
 MAIN.create = function() {
 
     
-    /** @object background is the background grid */
-    grid = this.add.sprite(3*(VIEW.width/10), 4.5*(VIEW.height / 9), '6x8')
+    /** @object grid is the gem grid */
+    grid = this.add.sprite(3*(VIEW.width/12), 4.5*(VIEW.height / 9), '6x8')
 
     /** @object platforms hold the gems up */
     platform = this.physics.add.staticGroup()
-    platform.create(3*(VIEW.width/10), (35/4)*(VIEW.height / 9), 'platformx384')
+    platform.create(3*(VIEW.width/12), (35/4)*(VIEW.height / 9), 'platformx384')
 
     /** @object Gems group */
     gemSprites = []
@@ -153,6 +163,10 @@ MAIN.match = function(gem1, gem2) {
 }
 
 const SCENES = [MENU, MAIN, GAMEOVER]
+function preloadUI(){
+    
+}
+
 
 export {
     MENU,

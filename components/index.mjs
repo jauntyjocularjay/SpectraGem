@@ -6,8 +6,9 @@ import {
 
 const PATH = {
     board: {
-        '8x8': 'assets/gems/png/board8x8.png',
-        '6x8': 'assets/gems/png/board6x8.png'
+        '3x3': 'assets/gems/png/board3x3.png',
+        '6x8': 'assets/gems/png/board6x8.png',
+        '8x8': 'assets/gems/png/board8x8.png'
     },
     gem: {
         blue: 'assets/gems/png/blue.png',
@@ -81,28 +82,30 @@ const PATH = {
             music: 'assets/ui/icon/music.png',
             mute: 'assets/ui/icon/mute.png',
         },
-        check: 'assets/ui/icon/check.png',
-        cross: 'assets/ui/icon/cross.png',
-        crosshair1: 'assets/ui/icon/crosshair1.png',
-        crosshair2: 'assets/ui/icon/crosshair2.png',
-        goto: 'assets/ui/icon/goto.png',
-        heart: 'assets/ui/icon/heart.png',
-        home: 'assets/ui/icon/home.png',
-        inventory_lock: 'assets/ui/icon/inventory_lock.png',
-        inventory: 'assets/ui/icon/inventory.png',
-        lightning: 'assets/ui/icon/lightning.png',
-        location: 'assets/ui/icon/location.png',
-        menu: 'assets/ui/icon/menu.png',
-        minus: 'assets/ui/icon/minus.png',
-        plus: 'assets/ui/icon/plus.png',
-        refresh: 'assets/ui/icon/refresh.png',
-        settings: 'assets/ui/icon/settings.png',
-        share: 'assets/ui/icon/share.png',
-        shield: 'assets/ui/icon/shield.png',
-        snd: 'assets/ui/icon/sound.png',
-        star: 'assets/ui/icon/star.png',
-        trash: 'assets/ui/icon/trash.png',
-        xp: 'assets/ui/icon/xp.png',
+        other: {
+            check: 'assets/ui/icon/check.png',
+            cross: 'assets/ui/icon/cross.png',
+            crosshair1: 'assets/ui/icon/crosshair1.png',
+            crosshair2: 'assets/ui/icon/crosshair2.png',
+            goto: 'assets/ui/icon/goto.png',
+            heart: 'assets/ui/icon/heart.png',
+            home: 'assets/ui/icon/home.png',
+            inventory_lock: 'assets/ui/icon/inventory_lock.png',
+            inventory: 'assets/ui/icon/inventory.png',
+            lightning: 'assets/ui/icon/lightning.png',
+            location: 'assets/ui/icon/location.png',
+            menu: 'assets/ui/icon/menu.png',
+            minus: 'assets/ui/icon/minus.png',
+            plus: 'assets/ui/icon/plus.png',
+            refresh: 'assets/ui/icon/refresh.png',
+            settings: 'assets/ui/icon/settings.png',
+            share: 'assets/ui/icon/share.png',
+            shield: 'assets/ui/icon/shield.png',
+            snd: 'assets/ui/icon/sound.png',
+            star: 'assets/ui/icon/star.png',
+            trash: 'assets/ui/icon/trash.png',
+            xp: 'assets/ui/icon/xp.png'
+        },
     }
 }
 const VIEW = new View((12 * 64), (9 * 64))
