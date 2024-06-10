@@ -58,24 +58,32 @@ MAIN.create = function() {
     platform.create(3*(VIEW.width/10), (35/4)*(VIEW.height / 9), 'platformx384')
 
     /** @object Gems group */
-    gemSprites = []
-    class GemSprite {
-        constructor(scene, i, j, gem){
-            this.gem = Gem.random()
-            this.sprite = new Sprite(scene, i*(VIEW.width/10), j*(VIEW.height/9), this.gem.color.alias)
-        }
-    }
+    let gems = {}
 
     for(let j = 0; j < 8; j++){
         for(let i = 0; i < 6; i++){
             console.log('create a gem')
-            const gem = new GemSprite(this, i*(VIEW.width/10), j*(VIEW.height/9), 'red')
+            gems = this.physics.add.group({
+                key: Gem.random().color.alias,
+                setXY: { x: (i * VIEW.width/10)+31, y: 64 * j},
+                setXY: { 
+                    x: (i * VIEW.width/10)+30, 
+                    y: 64 * j
+                },
+                scale: {
+                    x: 15/16,
+                    y: 15/16
+                }
+            })
+            gems.children.iterate(function(child){
+                child.setBounceY(0.0, j * 0.1)
+            })
+            this.physics.add.collider(gems, platform)
+
         }
     }
 
-    console.log('gems array', gemSprites)
-    this.physics.add.collider(gemSprites, platform)
-    this.physics.add.collider(gemSprites, gemSprites)
+    // this.physics.add.collider(gems, gems)
 
 }
 
