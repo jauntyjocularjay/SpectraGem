@@ -31,16 +31,16 @@ const PATH = {
     },
     card: {
         lrg: {
-            'lrga': 'assets/ui/card/1a.png',
-            'lrgb': 'assets/ui/card/1b.png'
+            lrga: 'assets/ui/card/1a.png',
+            lrgb: 'assets/ui/card/1b.png'
         },
         med: {
-            'meda': 'assets/ui/card/2a.png',
-            'medb': 'assets/ui/card/2b.png'
+            meda: 'assets/ui/card/2a.png',
+            medb: 'assets/ui/card/2b.png'
         },
         sml: {
-            'smla': 'assets/ui/card/3a.png',
-            'smlb': 'assets/ui/card/3b.png'
+            smla: 'assets/ui/card/3a.png',
+            smlb: 'assets/ui/card/3b.png'
         }
     },
     panel: {

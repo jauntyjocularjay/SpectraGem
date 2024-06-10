@@ -14,26 +14,24 @@ import {
     SpriteSheet,
 } from './phaserhelpers/index.mjs'
 import {
-    Gem,
-    RedGem,
-    OrangeGem,
-    YellowGem,
-    GreenGem,
-    BlueGem,
-    VioletGem,
-    WhiteGem,
-    GrayGem
-} from './components/Gem.mjs'
-import {
     PATH,
     VIEW,
 } from './components/index.mjs'
-import { SCENES } from './components/Scenes.mjs'
+import {
+    MENU,
+    MAIN,
+    GAMEOVER
+} from './components/Scenes.mjs'
 
-
+const arcade = PHYSICS.arcade
 
 let i = 0
-let config = new Config(VIEW, PHYSICS.arcade)
-config.scene = SCENES[i]
-let game = new Phaser.Game(config)
+let config = new Config(VIEW, arcade)
+config.scene = MENU
+// config.scene.preload = MENU.preload
+// config.scene.create = MENU.create
+// config.scene.update = MENU.update
+let game = 
+    new Phaser.Game(
+        config)
 

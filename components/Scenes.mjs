@@ -155,5 +155,7 @@ MAIN.match = function(gem1, gem2) {
 const SCENES = [MENU, MAIN, GAMEOVER]
 
 export {
-    SCENES
+    MENU,
+    MAIN,
+    GAMEOVER
 }
