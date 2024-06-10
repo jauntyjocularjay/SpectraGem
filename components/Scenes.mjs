@@ -161,15 +161,18 @@ MAIN.create = function() {
     /** @object Gems group */
     let gems = []
     let temp = {}
+    const gemBuffer = 4
+    const gemXOffset = 30
+    const gemYOffset = 0
 
-    for(let j = 0; j < 8; j++){
-        for(let i = 0; i < 6; i++){
+    for(let i = 0; i < 6; i++){ // i indicates the row
+        for(let j = 0; j < 8; j++){ // j inducates the column
             console.log('create a gem')
             temp = this.physics.add.group({
                 key: Gem.random().color.alias,
                 setXY: { 
-                    x: (i * VIEW.width/12)+30,
-                    y: 80 * j - 64
+                    x: (i * VIEW.width/12) + gemXOffset, // spaces between the gems horizontally
+                    y: ((64 + gemBuffer) * j) - gemYOffset // space between gems vertically on creation
                 }
             })
 

@@ -35,7 +35,7 @@ import {
 } from './components/Scenes.mjs'
 
 
-
+PHYSICS.arcade.arcade.gravity.y = 256
 let config = new Config(VIEW, PHYSICS.arcade)
 config.scene = MAIN
 
