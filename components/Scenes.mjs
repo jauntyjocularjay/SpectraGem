@@ -199,6 +199,7 @@ function preloadUI(){
 
 
 export {
+    SCENES,
     MENU,
     MAIN,
     GAMEOVER

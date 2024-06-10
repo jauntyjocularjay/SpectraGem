@@ -29,7 +29,8 @@ import {
     VIEW,
 } from './components/index.mjs'
 import {
-    MENU, 
+    SCENES,
+    MENU,
     MAIN,
     GAMEOVER
 } from './components/Scenes.mjs'
@@ -37,7 +38,7 @@ import {
 
 PHYSICS.arcade.arcade.gravity.y = 256
 let config = new Config(VIEW, PHYSICS.arcade)
-config.scene = MAIN
+config.scene = SCENES[0]
 
 const game = new Phaser.Game(config)
 
