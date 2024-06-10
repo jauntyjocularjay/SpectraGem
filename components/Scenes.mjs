@@ -38,7 +38,7 @@ const GAMEOVER = {}
 
 MAIN.preload = function() {
     for(const [key, value] of Object.entries(PATH.gem)){
-        this.load.spritesheet(key, value, new SquareFrame(60)) // reduced 64 to 60
+        this.load.spritesheet(key, value, new SquareFrame(64)) // reduced 64 to 60
     }
     for(const [key, value] of Object.entries(PATH.board)){
         this.load.spritesheet(key, value, new Frame(384, 512))
@@ -59,11 +59,12 @@ MAIN.create = function() {
 
     /** @object Gems group */
     let gems = []
+    let temp = {}
 
     for(let j = 0; j < 8; j++){
         for(let i = 0; i < 6; i++){
             console.log('create a gem')
-            gems.push(this.physics.add.group({
+            temp = this.physics.add.group({
                 key: Gem.random().color.alias,
                 setXY: { 
                     x: (i * VIEW.width/10)+30,
@@ -73,18 +74,18 @@ MAIN.create = function() {
                     x: 15/16,
                     y: 15/16
                 }
-            }))
+            })
 
-            this.physics.add.collider(gems, platform)
+            gems.push(temp)
 
+            this.physics.add.collider(temp, platform)
+            gems.forEach(gem1 => {
+                this.physics.add.collider(gem1, temp)
+            })
         }
     }
 
-    gems.forEach(gem1 => {
-        gems.forEach(gem2 => {
-            this.physics.add.collider(gem1, gem2)
-        })
-    })
+
     // this.physics.add.collider(gems, gems)
 
 }
