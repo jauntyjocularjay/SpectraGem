@@ -1,3 +1,6 @@
 [submodule "phaserhelpers"]
 	path = phaserhelpers
 	url = https://github.com/jauntyjocularjay/phaserhelpers.git
+[submodule "git"]
+	path = git
+	url = https://github.com/jauntyjocularjay/kwikgit.git
