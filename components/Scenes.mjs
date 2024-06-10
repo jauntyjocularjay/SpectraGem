@@ -116,7 +116,32 @@ MENU.update = function() {
 
 MAIN.preload = function() {
     for(const [key, value] of Object.entries(PATH.gem)){
-        this.load.spritesheet(key, value, new SquareFrame(60)) // reduced 64 to 60
+        this.load.spritesheet(key, value, new SquareFrame(64)) // reduced 64 to 60
+    }
+    this.load.spritesheet('3x3', PATH.board['3x3'], new Frame(193, 193))
+    this.load.spritesheet('platformx384', PATH.platform.x384, new Frame(384, 32))
+    this.load.spritesheet('platformx512', PATH.platform.x512, new Frame(512, 32))
+}
+
+MENU.create = function() {
+        /** @object grid is the gem grid */
+    const grid = this.add.sprite(2*(VIEW.width/12), 7*(VIEW.height/9), '3x3')
+        /** @object platforms hold the gems up */
+    const platform = this.physics.add.staticGroup()
+    const gems = []
+    platform.create(2*(VIEW.width/12), (35/4)*(VIEW.height / 9), 'platformx384').setScale(0.5, 1.0).refreshBody()
+    gems.push()
+}
+
+MENU.update = function() {
+
+}
+
+
+
+MAIN.preload = function() {
+    for(const [key, value] of Object.entries(PATH.gem)){
+        this.load.spritesheet(key, value, new SquareFrame(64)) // reduced 64 to 60
     }
     for(const [key, value] of Object.entries(PATH.board)){
         this.load.spritesheet(key, value, new Frame(384, 512))
@@ -126,6 +151,8 @@ MAIN.preload = function() {
 }
 
 MAIN.create = function() {
+    /** @object background is the background grid */
+    grid = this.add.sprite(3*(VIEW.width/10), 4.5*(VIEW.height / 9), '6x8')
 
     
     /** @object grid is the gem grid */
@@ -136,25 +163,31 @@ MAIN.create = function() {
     platform.create(3*(VIEW.width/12), (35/4)*(VIEW.height / 9), 'platformx384')
 
     /** @object Gems group */
-    gemSprites = []
-    class GemSprite {
-        constructor(scene, i, j, gem){
-            this.gem = Gem.random()
-            this.sprite = new Sprite(scene, i*(VIEW.width/10), j*(VIEW.height/9), this.gem.color.alias)
-        }
-    }
+    let gems = []
+    let temp = {}
 
     for(let j = 0; j < 8; j++){
         for(let i = 0; i < 6; i++){
             console.log('create a gem')
-            const gem = new GemSprite(this, i*(VIEW.width/10), j*(VIEW.height/9), 'red')
+            temp = this.physics.add.group({
+                key: Gem.random().color.alias,
+                setXY: { 
+                    x: (i * VIEW.width/10)+30,
+                    y: 80 * j - 128
+                },
+                scale: {
+                    x: 15/16,
+                    y: 15/16
+                }
+            })
+
+            gems.push(temp)
+            gems.forEach(gem => {
+                this.physics.add.collider(gem, temp)
+            })
+            this.physics.add.collider(temp, platform)
         }
     }
-
-    console.log('gems array', gemSprites)
-    this.physics.add.collider(gemSprites, platform)
-    this.physics.add.collider(gemSprites, gemSprites)
-
 }
 
 MAIN.update = function() {
