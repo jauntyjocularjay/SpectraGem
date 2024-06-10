@@ -161,13 +161,12 @@ MAIN.create = function() {
     /** @object Gems group */
     let gems = []
     let temp = {}
-    const gemBuffer = 4
+    const gemBuffer = 2
     const gemXOffset = 30
     const gemYOffset = 0
 
     for(let i = 0; i < 6; i++){ // i indicates the row
         for(let j = 0; j < 8; j++){ // j inducates the column
-            console.log('create a gem')
             temp = this.physics.add.group({
                 key: Gem.random().color.alias,
                 setXY: { 
@@ -177,7 +176,7 @@ MAIN.create = function() {
             })
 
             gems.push(temp)
-            this.physics.add.collider(gems, temp)
+            this.physics.add.collider(gems, gems)
             this.physics.add.collider(temp, platform)
         }
     }
