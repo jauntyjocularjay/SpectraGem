@@ -90,6 +90,9 @@ MENU.preload = function() {
     for(const [key, value] of Object.entries(PATH.card.sml)){
         this.load.spritesheet(key, value, new Frame(640, 384))
     }
+    for(const [key, value] of Object.entries(PATH.gem)){
+        this.load.spritesheet(key, value, new SquareFrame(60)) // reduced 64 to 60
+    }
     this.load.spritesheet('3x3', PATH.board['3x3'], new Frame(193, 193))
     this.load.spritesheet('platformx384', PATH.platform.x384, new Frame(384, 32))
     this.load.spritesheet('platformx512', PATH.platform.x512, new Frame(512, 32))
@@ -100,7 +103,9 @@ MENU.create = function() {
     const grid = this.add.sprite(2*(VIEW.width/12), 7*(VIEW.height/9), '3x3')
         /** @object platforms hold the gems up */
     const platform = this.physics.add.staticGroup()
+    const gems = []
     platform.create(2*(VIEW.width/12), (35/4)*(VIEW.height / 9), 'platformx384').setScale(0.5, 1.0).refreshBody()
+    gems.push()
 }
 
 MENU.update = function() {
