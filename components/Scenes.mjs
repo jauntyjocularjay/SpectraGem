@@ -177,9 +177,7 @@ MAIN.create = function() {
             })
 
             gems.push(temp)
-            gems.forEach(gem => {
-                this.physics.add.collider(gem, temp)
-            })
+            this.physics.add.collider(gems, temp)
             this.physics.add.collider(temp, platform)
         }
     }
