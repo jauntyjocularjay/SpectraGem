@@ -103,6 +103,7 @@ for(const [key, value] of Object.entries(PATH.icon.other)){
 }
 
 MENU.preload = function() {
+    this.load.image('aurora', PATH.background.aurora)
     Object.values(btns).forEach(btn => btn.preload(this))
     Object.values(panels).forEach(panel => panel.preload(this))
     Object.values(gems).forEach(gem => gem.preload(this))
@@ -112,14 +113,15 @@ MENU.preload = function() {
 }
 
 MENU.create = function() {
+    
+    this.add.image(VIEW.width/2, VIEW.height/2, 'aurora')
+    
     /** @object grid is the gem grid */
-    const board = boards['3x3'].create(this, 2*(VIEW.width/12), 7*(VIEW.height/9), '3x3')
+    boards['3x3'].create(this, 2*(VIEW.width/12), 7*(VIEW.height/9), '3x3')
 
     /** @object platforms hold the gems up */
     const platform = this.physics.add.staticGroup()
-    platform.create(2*(VIEW.width/12), (35/4)*(VIEW.height / 9), 'platformx384').setScale(0.5, 1.0).refreshBody()
-
-    console.log('cards', cards)
+    platform.create(2*(VIEW.width/12), (35/4)*(VIEW.height / 9), 'platformx384').setScale(98.0/192.0, 1.0).refreshBody()
 
     const ui = {
         background: cards.lrga.create(this, 9*(VIEW.width/12), 6*(VIEW.height / 9), 'lrga')
@@ -132,19 +134,26 @@ MENU.update = function() {
 }
 
 MAIN.preload = function() {
+    this.load.image('aurora', PATH.background.aurora)
+
     for(const [key, value] of Object.entries(PATH.gem)){
         this.load.spritesheet(key, value, new SquareFrame(64)) // reduced 64 to 60
     }
+
     for(const [key, value] of Object.entries(PATH.board)){
         this.load.spritesheet(key, value, new Frame(384, 512))
     }
+
     this.load.spritesheet('platformx384', PATH.platform.x384, new Frame(384, 32))
     this.load.spritesheet('platformx512', PATH.platform.x512, new Frame(512, 32))
 }
 
 MAIN.create = function() {
+    /** @object bg is the background image */
+    this.load.image('aurora', PATH.background.aurora).setScale(0.5).refreshBody()
+
     /** @object grid is the gem grid */
-    grid = this.add.sprite(3*(VIEW.width/12), 4.5*(VIEW.height / 9), '6x8')
+    this.add.sprite(3*(VIEW.width/12), 4.5*(VIEW.height / 9), '6x8')
 
     /** @object platforms hold the gems up */
     platform = this.physics.add.staticGroup()
@@ -185,14 +194,7 @@ MAIN.match = function(gem1, gem2) {
 }
 
 const SCENES = [MENU, MAIN, GAMEOVER]
-function preloadUI(){
-    
-}
-
 
 export {
-    SCENES,
-    MENU,
-    MAIN,
-    GAMEOVER
+    SCENES
 }

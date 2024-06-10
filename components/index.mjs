@@ -5,6 +5,9 @@ import {
 
 
 const PATH = {
+    background: {
+        aurora: 'assets/background.png'
+    },
     board: {
         '3x3': 'assets/gems/png/board3x3.png',
         '6x8': 'assets/gems/png/board6x8.png',

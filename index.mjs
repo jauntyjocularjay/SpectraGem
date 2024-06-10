@@ -29,10 +29,7 @@ import {
     VIEW,
 } from './components/index.mjs'
 import {
-    SCENES,
-    MENU,
-    MAIN,
-    GAMEOVER
+    SCENES
 } from './components/Scenes.mjs'
 
 
