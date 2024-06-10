@@ -30,12 +30,18 @@ const PATH = {
         normal: 'assets/ui/btn/normal.png'
     },
     card: {
-        x1: 'assets/ui/card/cardx1.png',
-        x2: 'assets/ui/card/cardx2.png',
-        x3: 'assets/ui/card/cardx3.png',
-        x4: 'assets/ui/card/cardx4.png',
-        x5: 'assets/ui/card/cardx5.png',
-        x6: 'assets/ui/card/cardx6.png'
+        lrg: {
+            'lrga': 'assets/ui/card/1a.png',
+            'lrgb': 'assets/ui/card/1b.png'
+        },
+        med: {
+            'meda': 'assets/ui/card/2a.png',
+            'medb': 'assets/ui/card/2b.png'
+        },
+        sml: {
+            'smla': 'assets/ui/card/3a.png',
+            'smlb': 'assets/ui/card/3b.png'
+        }
     },
     panel: {
         empty: 'assets/ui/panel/empty.png',
@@ -66,6 +72,15 @@ const PATH = {
         'in-game': {
             help: 'assets/ui/icon/question.png',
         },
+        action: {
+            add: 'assets/ui/icon/plus.png',
+            remove: 'assets/ui/icon/minus.png',
+            check: 'assets/ui/icon/check.png',
+        },
+        sound: {
+            music: 'assets/ui/icon/music.png',
+            mute: 'assets/ui/icon/mute.png',
+        },
         check: 'assets/ui/icon/check.png',
         cross: 'assets/ui/icon/cross.png',
         crosshair1: 'assets/ui/icon/crosshair1.png',
@@ -79,20 +94,18 @@ const PATH = {
         location: 'assets/ui/icon/location.png',
         menu: 'assets/ui/icon/menu.png',
         minus: 'assets/ui/icon/minus.png',
-        msuic: 'assets/ui/icon/music.png',
-        mute: 'assets/ui/icon/mute.png',
         plus: 'assets/ui/icon/plus.png',
         refresh: 'assets/ui/icon/refresh.png',
         settings: 'assets/ui/icon/settings.png',
         share: 'assets/ui/icon/share.png',
         shield: 'assets/ui/icon/shield.png',
-        snd: 'assets/ui/icon/snd_up.png',
+        snd: 'assets/ui/icon/sound.png',
         star: 'assets/ui/icon/star.png',
         trash: 'assets/ui/icon/trash.png',
         xp: 'assets/ui/icon/xp.png',
     }
 }
-const VIEW = new View((10 * 64), (9 * 64))
+const VIEW = new View((12 * 64), (9 * 64))
 
 export {
     PATH,

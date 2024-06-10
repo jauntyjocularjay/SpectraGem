@@ -32,14 +32,8 @@ import { SCENES } from './components/Scenes.mjs'
 
 
 
-let game
 let i = 0
-
 let config = new Config(VIEW, PHYSICS.arcade)
 config.scene = SCENES[i]
+let game = new Phaser.Game(config)
 
-game = new Phaser.Game(config)
-
-export {
-    PATH
-}

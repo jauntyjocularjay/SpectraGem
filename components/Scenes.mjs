@@ -51,6 +51,45 @@ MENU.text = {
 }
 
 MENU.preload = function() {
+    for(const [key, value] of Object.entries(PATH.btn)){
+        this.load.image(key, value, new Frame(120, 40))
+    }
+    for(const [key, value] of Object.entries(PATH.panel)){
+        this.load.image(key, value, new Frame(128, 64))
+    }
+    for(const [key, value] of Object.entries(PATH.icon.social)){
+        this.load.image(key, value, new Frame(32, 32))
+    }
+    for(const [key, value] of Object.entries(PATH.icon.direction)){
+        this.load.image(key, value, new Frame(32, 32))
+    }
+    for(const [key, value] of Object.entries(PATH.icon.action)){
+        this.load.image(key, value, new Frame(32, 32))
+    }
+    for(const [key, value] of Object.entries(PATH.icon.msg)){
+        this.load.image(key, value, new Frame(32, 32))
+    }
+    for(const [key, value] of Object.entries(PATH.icon['in-game'])){
+        this.load.image(key, value, new Frame(32, 32))
+    }
+    for(const [key, value] of Object.entries(PATH.icon.action)){
+        this.load.image(key, value, new Frame(32, 32))
+    }
+    for(const [key, value] of Object.entries(PATH.icon.sound)){
+        this.load.image(key, value, new Frame(32, 32))
+    }
+    for(const [key, value] of Object.entries(PATH.icon)){
+        this.load.image(key, value, new Frame(32, 32))
+    }
+    for(const [key, value] of Object.entries(PATH.card.lrg)){
+        this.load.image(key, value, new Frame(384, 768))
+    }
+    for(const [key, value] of Object.entries(PATH.card.med)){
+        this.load.image(key, value, new Frame(416, 384))
+    }
+    for(const [key, value] of Object.entries(PATH.card.sml)){
+        this.load.image(key, value, new Frame(640, 384))
+    }
 
 }
 
