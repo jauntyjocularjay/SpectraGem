@@ -151,10 +151,6 @@ MAIN.preload = function() {
 }
 
 MAIN.create = function() {
-    /** @object background is the background grid */
-    grid = this.add.sprite(3*(VIEW.width/10), 4.5*(VIEW.height / 9), '6x8')
-
-    
     /** @object grid is the gem grid */
     grid = this.add.sprite(3*(VIEW.width/12), 4.5*(VIEW.height / 9), '6x8')
 
@@ -172,12 +168,8 @@ MAIN.create = function() {
             temp = this.physics.add.group({
                 key: Gem.random().color.alias,
                 setXY: { 
-                    x: (i * VIEW.width/10)+30,
-                    y: 80 * j - 128
-                },
-                scale: {
-                    x: 15/16,
-                    y: 15/16
+                    x: (i * VIEW.width/12)+30,
+                    y: 80 * j - 64
                 }
             })
 

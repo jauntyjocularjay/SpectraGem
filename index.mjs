@@ -37,7 +37,7 @@ import {
 
 
 let config = new Config(VIEW, PHYSICS.arcade)
-config.scene = MENU
+config.scene = MAIN
 
 const game = new Phaser.Game(config)
 
