@@ -58,31 +58,33 @@ MAIN.create = function() {
     platform.create(3*(VIEW.width/10), (35/4)*(VIEW.height / 9), 'platformx384')
 
     /** @object Gems group */
-    let gems = {}
+    let gems = []
 
     for(let j = 0; j < 8; j++){
         for(let i = 0; i < 6; i++){
             console.log('create a gem')
-            gems = this.physics.add.group({
+            gems.push(this.physics.add.group({
                 key: Gem.random().color.alias,
-                setXY: { x: (i * VIEW.width/10)+31, y: 64 * j},
                 setXY: { 
-                    x: (i * VIEW.width/10)+30, 
-                    y: 64 * j
+                    x: (i * VIEW.width/10)+30,
+                    y: 80 * j - 128
                 },
                 scale: {
                     x: 15/16,
                     y: 15/16
                 }
-            })
-            gems.children.iterate(function(child){
-                child.setBounceY(0.0, j * 0.1)
-            })
+            }))
+
             this.physics.add.collider(gems, platform)
 
         }
     }
 
+    gems.forEach(gem1 => {
+        gems.forEach(gem2 => {
+            this.physics.add.collider(gem1, gem2)
+        })
+    })
     // this.physics.add.collider(gems, gems)
 
 }
