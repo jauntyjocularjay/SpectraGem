@@ -50,94 +50,86 @@ MENU.text = {
     ]
 }
 
+const btns = {}
+for(const [key, value] of Object.entries(PATH.btn)){
+    btns[key] = new SpriteSheet(key, value, new Frame(120, 40))
+}
+const panels = {}
+for(const [key, value] of Object.entries(PATH.panel)){
+    panels[key] = new SpriteSheet(key, value, new Frame(128, 64))
+}
+const gems = {}
+for(const [key, value] of Object.entries(PATH.gem)){
+    gems[key] = new SpriteSheet(key, value, new SquareFrame(60)) // reduced 64 to 60
+}
+const cards = {}
+for(const [key, value] of Object.entries(PATH.card.lrg)){
+    cards[key] = new SpriteSheet(key, value, new Frame(384, 768))
+}
+for(const [key, value] of Object.entries(PATH.card.med)){
+    cards[key] = new SpriteSheet(key, value, new Frame(416, 384))
+}
+for(const [key, value] of Object.entries(PATH.card.sml)){
+    cards[key] = new SpriteSheet(key, value, new Frame(640, 384))
+}
+const boards = []
+boards['3x3'] = new SpriteSheet('3x3', PATH.board['3x3'], new Frame(193, 193))
+boards['platformx384'] = new SpriteSheet('platformx384', PATH.platform.x384, new Frame(384, 32))
+boards['platformx512'] = new SpriteSheet('platformx512', PATH.platform.x512, new Frame(512, 32))
+const icons = {}
+for(const [key, value] of Object.entries(PATH.icon.social)){
+    icons[key] = new SpriteSheet(key, value, iconFrame)
+}
+for(const [key, value] of Object.entries(PATH.icon.direction)){
+    icons[key] = new SpriteSheet(key, value, iconFrame)
+}
+for(const [key, value] of Object.entries(PATH.icon.action)){
+    icons[key] = new SpriteSheet(key, value, iconFrame)
+}
+for(const [key, value] of Object.entries(PATH.icon.msg)){
+    icons[key] = new SpriteSheet(key, value, iconFrame)
+}
+for(const [key, value] of Object.entries(PATH.icon['in-game'])){
+    icons[key] = new SpriteSheet(key, value, iconFrame)
+}
+for(const [key, value] of Object.entries(PATH.icon.action)){
+    icons[key] = new SpriteSheet(key, value, iconFrame)
+}
+for(const [key, value] of Object.entries(PATH.icon.sound)){
+    icons[key] = new SpriteSheet(key, value, iconFrame)
+}
+for(const [key, value] of Object.entries(PATH.icon.other)){
+    icons[key] = new SpriteSheet(key, value, iconFrame)
+}
+
 MENU.preload = function() {
-    for(const [key, value] of Object.entries(PATH.btn)){
-        this.load.spritesheet(key, value, new Frame(120, 40))
-    }
-    for(const [key, value] of Object.entries(PATH.panel)){
-        this.load.spritesheet(key, value, new Frame(128, 64))
-    }
-    for(const [key, value] of Object.entries(PATH.icon.social)){
-        this.load.spritesheet(key, value, iconFrame)
-    }
-    for(const [key, value] of Object.entries(PATH.icon.direction)){
-        this.load.spritesheet(key, value, iconFrame)
-    }
-    for(const [key, value] of Object.entries(PATH.icon.action)){
-        this.load.spritesheet(key, value, iconFrame)
-    }
-    for(const [key, value] of Object.entries(PATH.icon.msg)){
-        this.load.spritesheet(key, value, iconFrame)
-    }
-    for(const [key, value] of Object.entries(PATH.icon['in-game'])){
-        this.load.spritesheet(key, value, iconFrame)
-    }
-    for(const [key, value] of Object.entries(PATH.icon.action)){
-        this.load.spritesheet(key, value, iconFrame)
-    }
-    for(const [key, value] of Object.entries(PATH.icon.sound)){
-        this.load.spritesheet(key, value, iconFrame)
-    }
-    for(const [key, value] of Object.entries(PATH.icon.other)){
-        this.load.spritesheet(key, value, iconFrame)
-    }
-    for(const [key, value] of Object.entries(PATH.card.lrg)){
-        this.load.spritesheet(key, value, new Frame(384, 768))
-    }
-    for(const [key, value] of Object.entries(PATH.card.med)){
-        this.load.spritesheet(key, value, new Frame(416, 384))
-    }
-    for(const [key, value] of Object.entries(PATH.card.sml)){
-        this.load.spritesheet(key, value, new Frame(640, 384))
-    }
-    for(const [key, value] of Object.entries(PATH.gem)){
-        this.load.spritesheet(key, value, new SquareFrame(60)) // reduced 64 to 60
-    }
-    this.load.spritesheet('3x3', PATH.board['3x3'], new Frame(193, 193))
-    this.load.spritesheet('platformx384', PATH.platform.x384, new Frame(384, 32))
+    Object.values(btns).forEach(btn => btn.preload(this))
+    Object.values(panels).forEach(panel => panel.preload(this))
+    Object.values(gems).forEach(gem => gem.preload(this))
+    Object.values(cards).forEach(card => card.preload(this))
+    Object.values(boards).forEach(board => board.preload(this))
+    Object.values(icons).forEach(icon => icon.preload(this))
 }
 
 MENU.create = function() {
     /** @object grid is the gem grid */
-    const grid = this.add.sprite(2*(VIEW.width/12), 7*(VIEW.height/9), '3x3')
+    const board = boards['3x3'].create(this, 2*(VIEW.width/12), 7*(VIEW.height/9), '3x3')
 
     /** @object platforms hold the gems up */
     const platform = this.physics.add.staticGroup()
     platform.create(2*(VIEW.width/12), (35/4)*(VIEW.height / 9), 'platformx384').setScale(0.5, 1.0).refreshBody()
 
+    console.log('cards', cards)
+
+    const ui = {
+        background: cards.lrga.create(this, 9*(VIEW.width/12), 6*(VIEW.height / 9), 'lrga')
+    }
     
 }
 
 MENU.update = function() {
 
 }
-
-
-
-MAIN.preload = function() {
-    for(const [key, value] of Object.entries(PATH.gem)){
-        this.load.spritesheet(key, value, new SquareFrame(64)) // reduced 64 to 60
-    }
-    this.load.spritesheet('3x3', PATH.board['3x3'], new Frame(193, 193))
-    this.load.spritesheet('platformx384', PATH.platform.x384, new Frame(384, 32))
-    this.load.spritesheet('platformx512', PATH.platform.x512, new Frame(512, 32))
-}
-
-MENU.create = function() {
-        /** @object grid is the gem grid */
-    const grid = this.add.sprite(2*(VIEW.width/12), 7*(VIEW.height/9), '3x3')
-        /** @object platforms hold the gems up */
-    const platform = this.physics.add.staticGroup()
-
-    platform.create(2*(VIEW.width/12), (35/4)*(VIEW.height / 9), 'platformx384').setScale(0.5, 1.0).refreshBody()
-
-}
-
-MENU.update = function() {
-
-}
-
-
 
 MAIN.preload = function() {
     for(const [key, value] of Object.entries(PATH.gem)){
