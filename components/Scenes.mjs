@@ -48,8 +48,6 @@ MAIN.preload = function() {
 }
 
 MAIN.create = function() {
-
-    
     /** @object background is the background grid */
     grid = this.add.sprite(3*(VIEW.width/10), 4.5*(VIEW.height / 9), '6x8')
 
@@ -77,17 +75,12 @@ MAIN.create = function() {
             })
 
             gems.push(temp)
-
-            this.physics.add.collider(temp, platform)
-            gems.forEach(gem1 => {
-                this.physics.add.collider(gem1, temp)
+            gems.forEach(gem => {
+                this.physics.add.collider(gem, temp)
             })
+            this.physics.add.collider(temp, platform)
         }
     }
-
-
-    // this.physics.add.collider(gems, gems)
-
 }
 
 MAIN.update = function() {
