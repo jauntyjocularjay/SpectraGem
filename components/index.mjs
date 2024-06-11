@@ -8,50 +8,6 @@ const PATH = {
     background: {
         aurora: 'assets/background.png'
     },
-    board: {
-        '3x3': 'assets/gems/png/board3x3.png',
-        '6x8': 'assets/gems/png/board6x8.png',
-        '8x8': 'assets/gems/png/board8x8.png'
-    },
-    gem: {
-        blue: 'assets/gems/png/blue.png',
-        gray: 'assets/gems/png/gray.png',
-        green: 'assets/gems/png/green.png',
-        violet: 'assets/gems/png/magenta.png',
-        orange: 'assets/gems/png/orange.png',
-        red: 'assets/gems/png/red.png',
-        white: 'assets/gems/png/white.png',
-        yellow: 'assets/gems/png/yellow.png'
-    },
-    platform: {
-        x384: 'assets/gems/png/platformx384.png',
-        x512: 'assets/gems/png/platformx512.png'
-    },
-    btn: {
-        active: 'assets/ui/btn/active.png',
-        disabled: 'assets/ui/btn/disabled.png',
-        hover: 'assets/ui/btn/hover.png',
-        normal: 'assets/ui/btn/normal.png'
-    },
-    card: {
-        lrg: {
-            lrga: 'assets/ui/card/card1a.png',
-            lrgb: 'assets/ui/card/card1b.png'
-        },
-        med: {
-            meda: 'assets/ui/card/card2a.png',
-            medb: 'assets/ui/card/card2b.png'
-        },
-        sml: {
-            smla: 'assets/ui/card/card3a.png',
-            smlb: 'assets/ui/card/card3b.png'
-        }
-    },
-    panel: {
-        empty: 'assets/ui/panel/empty.png',
-        green: 'assets/ui/panel/green.png',
-        red: 'assets/ui/panel/red.png'
-    },
     icon: {
         social: {
             discord: 'assets/ui/icon/social_discord.png',
@@ -109,7 +65,51 @@ const PATH = {
             trash: 'assets/ui/icon/trash.png',
             xp: 'assets/ui/icon/xp.png'
         },
-    }
+    },
+    gem: {
+        blue: 'assets/gems/png/blue.png',
+        gray: 'assets/gems/png/gray.png',
+        green: 'assets/gems/png/green.png',
+        violet: 'assets/gems/png/magenta.png',
+        orange: 'assets/gems/png/orange.png',
+        red: 'assets/gems/png/red.png',
+        white: 'assets/gems/png/white.png',
+        yellow: 'assets/gems/png/yellow.png'
+    },
+    platform: {
+        x384: 'assets/gems/png/platformx384.png',
+        x512: 'assets/gems/png/platformx512.png'
+    },
+    btn: {
+        active: 'assets/ui/btn/active.png',
+        disabled: 'assets/ui/btn/disabled.png',
+        hover: 'assets/ui/btn/hover.png',
+        normal: 'assets/ui/btn/normal.png'
+    },
+    card: {
+        lrg: {
+            lrga: 'assets/ui/card/card1a.png',
+            lrgb: 'assets/ui/card/card1b.png'
+        },
+        med: {
+            meda: 'assets/ui/card/card2a.png',
+            medb: 'assets/ui/card/card2b.png'
+        },
+        sml: {
+            smla: 'assets/ui/card/card3a.png',
+            smlb: 'assets/ui/card/card3b.png'
+        }
+    },
+    panel: {
+        empty: 'assets/ui/panel/empty.png',
+        green: 'assets/ui/panel/green.png',
+        red: 'assets/ui/panel/red.png'
+    },
+    board: {
+        '3x3': 'assets/gems/png/board3x3.png',
+        '6x8': 'assets/gems/png/board6x8.png',
+        '8x8': 'assets/gems/png/board8x8.png'
+    },
 }
 const VIEW = new View((12 * 64), (9 * 64))
 

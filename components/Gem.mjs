@@ -53,27 +53,27 @@ class Gem {
         path: PATH.gem.gray,
         composes: []
     }
+    static TYPES = [Gem.RED, Gem.ORANGE, Gem.YELLOW, Gem.GREEN, Gem.BLUE, Gem.VIOLET, Gem.WHITE, Gem.GRAY]
 
     static random(){
         const random = Math.floor(Math.random() * 60)
         if(random <= 8){
             return new RedGem()
-        } else if(random <= 16){
+        } else if(random <= 17){
             return new OrangeGem()
-        } else if(random <= 24){
+        } else if(random <= 26){
             return new YellowGem()
-        } else if(random <= 32){
+        } else if(random <= 35){
             return new GreenGem()
-        } else if(random <= 40){
+        } else if(random <= 42){
             return new BlueGem()
-        } else if(random <= 48){
+        } else if(random <= 49){
             return new VioletGem()
         } else if(random <= 56){
             return new GrayGem()
-        } else if(random <= 60){
+        } else if(random <= 61){
             return new WhiteGem()
         }
-        
     }
 
     constructor(){}
