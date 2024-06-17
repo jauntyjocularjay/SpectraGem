@@ -11,7 +11,7 @@ import {
     SquareFrame,
     Img,
     SpriteSheet,
-} from '../phaserhelpers/index.mjs'
+} from '../module/phaserhelpers/index.mjs'
 import {
     Gem,
     RedGem,
@@ -27,6 +27,9 @@ import {
     PATH,
     VIEW,
 } from './index.mjs'
+import {
+    Match3
+} from './module/match3/Match3.mjs'
 
 let platform
 
@@ -49,52 +52,67 @@ MENU.text = {
     ]
 }
 
-const icons = {}
-for(const [key, value] of Object.entries(PATH.icon.social)){
-    icons[key] = new SpriteSheet(key, value, iconFrame)
+const icons = () => {
+    const icons = {}
+    for(const [key, value] of Object.entries(PATH.icon.social)){
+        icons[key] = new SpriteSheet(key, value, iconFrame)
+    }
+    for(const [key, value] of Object.entries(PATH.icon.direction)){
+        icons[key] = new SpriteSheet(key, value, iconFrame)
+    }
+    for(const [key, value] of Object.entries(PATH.icon.action)){
+        icons[key] = new SpriteSheet(key, value, iconFrame)
+    }
+    for(const [key, value] of Object.entries(PATH.icon.msg)){
+        icons[key] = new SpriteSheet(key, value, iconFrame)
+    }
+    for(const [key, value] of Object.entries(PATH.icon['in-game'])){
+        icons[key] = new SpriteSheet(key, value, iconFrame)
+    }
+    for(const [key, value] of Object.entries(PATH.icon.action)){
+        icons[key] = new SpriteSheet(key, value, iconFrame)
+    }
+    for(const [key, value] of Object.entries(PATH.icon.sound)){
+        icons[key] = new SpriteSheet(key, value, iconFrame)
+    }
+    for(const [key, value] of Object.entries(PATH.icon.other)){
+        icons[key] = new SpriteSheet(key, value, iconFrame)
+    }
+
+    return icons
 }
-for(const [key, value] of Object.entries(PATH.icon.direction)){
-    icons[key] = new SpriteSheet(key, value, iconFrame)
+const btns = () => {
+    const btns = {}
+    for(const [key, value] of Object.entries(PATH.btn)){
+        btns[key] = new SpriteSheet(key, value, new Frame(120, 40))
+    }
+    return btns
 }
-for(const [key, value] of Object.entries(PATH.icon.action)){
-    icons[key] = new SpriteSheet(key, value, iconFrame)
+const panels = () => {
+    const panels = {}
+    for(const [key, value] of Object.entries(PATH.panel)){
+        panels[key] = new SpriteSheet(key, value, new Frame(128, 64))
+    }
+    return panels
 }
-for(const [key, value] of Object.entries(PATH.icon.msg)){
-    icons[key] = new SpriteSheet(key, value, iconFrame)
+const gems = () => {
+    const gems = {}
+    for(const [key, value] of Object.entries(PATH.gem)){
+        gems[key] = new SpriteSheet(key, value, new SquareFrame(60)) // reduced 64 to 60
+    }
 }
-for(const [key, value] of Object.entries(PATH.icon['in-game'])){
-    icons[key] = new SpriteSheet(key, value, iconFrame)
-}
-for(const [key, value] of Object.entries(PATH.icon.action)){
-    icons[key] = new SpriteSheet(key, value, iconFrame)
-}
-for(const [key, value] of Object.entries(PATH.icon.sound)){
-    icons[key] = new SpriteSheet(key, value, iconFrame)
-}
-for(const [key, value] of Object.entries(PATH.icon.other)){
-    icons[key] = new SpriteSheet(key, value, iconFrame)
-}
-const btns = {}
-for(const [key, value] of Object.entries(PATH.btn)){
-    btns[key] = new SpriteSheet(key, value, new Frame(120, 40))
-}
-const panels = {}
-for(const [key, value] of Object.entries(PATH.panel)){
-    panels[key] = new SpriteSheet(key, value, new Frame(128, 64))
-}
-const gems = {}
-for(const [key, value] of Object.entries(PATH.gem)){
-    gems[key] = new SpriteSheet(key, value, new SquareFrame(60)) // reduced 64 to 60
-}
-const cards = {}
-for(const [key, value] of Object.entries(PATH.card.lrg)){
-    cards[key] = new SpriteSheet(key, value, new Frame(384, 768))
-}
-for(const [key, value] of Object.entries(PATH.card.med)){
-    cards[key] = new SpriteSheet(key, value, new Frame(416, 384))
-}
-for(const [key, value] of Object.entries(PATH.card.sml)){
-    cards[key] = new SpriteSheet(key, value, new Frame(640, 384))
+const cards = () => {
+    const cards = {}
+    for(const [key, value] of Object.entries(PATH.card.lrg)){
+        cards[key] = new SpriteSheet(key, value, new Frame(384, 768))
+    }
+    for(const [key, value] of Object.entries(PATH.card.med)){
+        cards[key] = new SpriteSheet(key, value, new Frame(416, 384))
+    }
+    for(const [key, value] of Object.entries(PATH.card.sml)){
+        cards[key] = new SpriteSheet(key, value, new Frame(640, 384))
+    }
+    return cards
 }
 const boards = {
     '3x3': new SpriteSheet('3x3', PATH.board['3x3'], new Frame(193, 193)),
@@ -145,6 +163,13 @@ MAIN.preload = function() {
     this.load.spritesheet('platformx384', PATH.platform.x384, new Frame(384, 32))
     this.load.spritesheet('platformx512', PATH.platform.x512, new Frame(512, 32))
 }
+
+// MAIN.create = function() {
+//     const match3 = new Match3({rows: 9, columns: 9, items: Gem.TYPES.length})
+
+//     match3.generateField()
+
+// }
 
 MAIN.create = function() {    
     /** @object bg is the background image */

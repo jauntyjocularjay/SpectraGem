@@ -1,3 +1,9 @@
 [submodule "git"]
 	path = git
 	url = https://github.com/jauntyjocularjay/kwikgit.git
+[submodule "module/vjsc"]
+	path = module/vjsc
+	url = https://github.com/jauntyjocularjay/vanillajscomponents.git
+[submodule "module/phaserhelpers"]
+	path = module/phaserhelpers
+	url = https://github.com/jauntyjocularjay/phaserhelpers.git

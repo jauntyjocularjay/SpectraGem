@@ -89,7 +89,7 @@ import {
 
 
 let config = new Config(VIEW)
-config.scene = SCENES[0]
+config.scene = SCENES[1]
 
 const game = new Phaser.Game(config)
 

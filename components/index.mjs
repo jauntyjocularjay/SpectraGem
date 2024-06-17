@@ -1,6 +1,6 @@
 import {
     View
-} from '../phaserhelpers/index.mjs'
+} from '../module/phaserhelpers/index.mjs'
 
 
 
