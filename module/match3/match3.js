@@ -1,6 +1,6 @@
 import {
     Gem
-} from '../components/Gem.mjs'
+} from '../../components/Gem.mjs'
 
 
 
